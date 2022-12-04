@@ -20,7 +20,7 @@ const Home = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3500")
+      .get('http://localhost:3500')
       .then((res) => {
         console.log(res);
         setPosts(res.data);
@@ -29,17 +29,17 @@ const Home = () => {
         console.log(err);
       });
   });
-  let [courseData, setCourseData] = useState(null);
-  useEffect(() => {
-    CourseService.getCourseByName("Article")
-      .then((data) => {
-        console.log(data);
-        setCourseData(data.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, []);
+  // let [courseData, setCourseData] = useState(null);
+  // useEffect(() => {
+  //   CourseService.getCourseByName("Article")
+  //     .then((data) => {
+  //       console.log(data);
+  //       setCourseData(data.data);
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
+  // }, []);
   return (
     <div className="Home">
       {/* <div>

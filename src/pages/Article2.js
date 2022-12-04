@@ -1,36 +1,29 @@
-import React, { useState, useEffect } from "react";
+import React, {useState, useEffect} from "react";
 import axios from "axios";
-import { useParams } from "react-router-dom";
+import { useParams } from 'react-router-dom';
 import { Link } from "react-router-dom";
 
 const Article = () => {
-  const [posts, setPosts] = useState([]);
+  const [posts, setPosts] = useState([])
   const { articleId } = useParams();
 
   useEffect(() => {
-    axios
-      .get("http://localhost:3500")
-      .then((res) => {
-        console.log(res);
-        setPosts(res.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  });
+      axios
+          .get('http://localhost:3500')
+          .then(res => {
+              console.log(res)
+          setPosts(res.data)
+          })
+          .catch(err => {
+              console.log(err)
+          })
+  })
 
   return (
     <div class="container">
       <ul>
-        {
-          // <div class="square">
-          //   <h1>Article{articleId}</h1>
-          //   <h4 class="content">By {posts[articleId]?.name}</h4>
-          //   <br />
-          //   <div class="content">{posts[articleId]?.body}</div>
-          //   <br />
-          // </div>
-          <div class="square">
+          {
+            <div class="square">
               {/* --------article-------- */}
                 <h1>Article{articleId}</h1>
                 <h4 class="content">By {posts[articleId-1]?.name}</h4>
@@ -79,7 +72,7 @@ const Article = () => {
                 <Link to={`/`} className="btn">BACK</Link>
                 <br/><br/>
             </div>
-        }
+          }
       </ul>
     </div>
   );
